@@ -1,4 +1,4 @@
-from tkinter import Tk, BOTH, Canvas
+from tkinter import Canvas
 
 class Point:
     def __init__(self, x, y):
