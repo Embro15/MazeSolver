@@ -23,6 +23,9 @@ def main():
     c4 = Cell(Point(700, 10), Point(750, 60), win, left=False, right=False)
     c4.draw()
 
+    c1.draw_move(c2)
+    c3.draw_move(c4, undo=True)
+
 
 
     win.wait_for_close()
