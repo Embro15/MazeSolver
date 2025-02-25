@@ -9,17 +9,19 @@ class Cell:
             has_left_wall=True,  
             has_right_wall=True,
             has_top_wall=True,
-            has_bottom_wall=True
+            has_bottom_wall=True,
+            visited=False
             ):
         self.has_left_wall = has_left_wall
         self.has_right_wall = has_right_wall
         self.has_top_wall = has_top_wall
-        self.has_bottom_wall = has_right_wall
+        self.has_bottom_wall = has_bottom_wall
         self._x1 = None
         self._x2 = None
         self._y1 = None
         self._y2 = None
         self._win = win
+        self._visited = visited
 
     def draw(
             self, 
@@ -27,10 +29,6 @@ class Cell:
             y1, 
             x2, 
             y2, 
-            has_left_wall=True,  
-            has_right_wall=True,
-            has_top_wall=True,
-            has_bottom_wall=True
             ):
         
         if self._win is None:
@@ -39,28 +37,25 @@ class Cell:
         self._x2 = x2
         self._y1 = y1
         self._y2 = y2
-        self.has_left_wall = has_left_wall
-        self.has_right_wall = has_right_wall
-        self.has_top_wall = has_top_wall
-        self.has_bottom_wall = has_bottom_wall
+
 
         if self.has_left_wall:
-            self._win.draw_line(Line(Point(self._x1, self._y1), Point(self._x1, self._y2)), "RED")
+            self._win.draw_line(Line(Point(self._x1, self._y1), Point(self._x1, self._y2)), "BLACK")
         else:
             self._win.draw_line(Line(Point(self._x1, self._y1), Point(self._x1, self._y2)), "#d9d9d9")
 
         if self.has_right_wall:
-            self._win.draw_line(Line(Point(self._x2, self._y1), Point(self._x2, self._y2)), "RED")
+            self._win.draw_line(Line(Point(self._x2, self._y1), Point(self._x2, self._y2)), "BLACK")
         else:
             self._win.draw_line(Line(Point(self._x2, self._y1), Point(self._x2, self._y2)), "#d9d9d9")
 
         if self.has_top_wall:
-            self._win.draw_line(Line(Point(self._x1, self._y1), Point(self._x2, self._y1)), "RED")
+            self._win.draw_line(Line(Point(self._x1, self._y1), Point(self._x2, self._y1)), "BLACK")
         else:
             self._win.draw_line(Line(Point(self._x1, self._y1), Point(self._x2, self._y1)), "#d9d9d9")
 
         if self.has_bottom_wall:
-            self._win.draw_line(Line(Point(self._x1, self._y2), Point(self._x2, self._y2)), "RED")
+            self._win.draw_line(Line(Point(self._x1, self._y2), Point(self._x2, self._y2)), "BLACK")
         else:
             self._win.draw_line(Line(Point(self._x1, self._y2), Point(self._x2, self._y2)), "#d9d9d9")
 
